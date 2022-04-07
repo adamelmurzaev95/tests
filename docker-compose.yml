@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: tests
+      POSTGRES_PASSWORD: tests
+      POSTGRES_DATABASE: tests
+    ports:
+      - "6543:5432"
+
+  postgres-test:
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: tests
+      POSTGRES_PASSWORD: tests
+      POSTGRES_DATABASE: tests
+    ports:
+      - "6544:5432"
