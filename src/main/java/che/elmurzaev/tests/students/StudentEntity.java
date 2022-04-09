@@ -63,6 +63,23 @@ public class StudentEntity {
         this.age = age;
     }
 
+    public StudentEntity() {
+    }
+
+    public StudentEntity(String firstName, String lastName, Integer age, Integer groupId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.groupId = groupId;
+    }
+
+    public StudentEntity(Integer id, String firstName, String lastName, Integer age, Integer groupId) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.groupId = groupId;
+    }
 
     @Override
     public boolean equals(Object o) {

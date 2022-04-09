@@ -1,8 +1,12 @@
-package che.elmurzaev.tests.students;
+package che.elmurzaev.tests.rest;
 
 import che.elmurzaev.tests.exceptions.groups.GroupNotFoundException;
 import che.elmurzaev.tests.exceptions.students.StudentNotFoundException;
 import che.elmurzaev.tests.rest.StudentRestController;
+import che.elmurzaev.tests.students.CreateStudentCommand;
+import che.elmurzaev.tests.students.Student;
+import che.elmurzaev.tests.students.StudentService;
+import che.elmurzaev.tests.students.Students;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -41,15 +45,6 @@ public class StudentsRestControllerTests {
             """;
 
     private final String createStudentJSON = """
-            {
-                "firstName": "Adam",
-                "lastName": "Elmurzaev",
-                "age": 20,
-                "groupId": 1
-            }
-            """;
-
-    private final String createStudentJSON2 = """
             {
                 "firstName": "Adam",
                 "lastName": "Elmurzaev",
@@ -130,7 +125,7 @@ public class StudentsRestControllerTests {
         mockMvc.perform(
                 post("/api/v1/students")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(createStudentJSON2))
+                        .content(createStudentJSON))
                 .andExpect(status().isNotFound());
     }
 

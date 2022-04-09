@@ -47,12 +47,11 @@ public class StudentService {
     }
 
     private StudentEntity toEntity(CreateStudentCommand createStudentCommand) {
-        var entity = new StudentEntity();
-        entity.setFirstName(createStudentCommand.firstName());
-        entity.setLastName(createStudentCommand.lastName());
-        entity.setAge(createStudentCommand.age());
-        entity.setGroupId(createStudentCommand.groupId());
-        return entity;
+        return new StudentEntity(
+                createStudentCommand.firstName(),
+                createStudentCommand.lastName(),
+                createStudentCommand.age(),
+                createStudentCommand.groupId());
     }
 
     private Student fromEntity(StudentEntity entity) {
